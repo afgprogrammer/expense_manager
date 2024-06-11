@@ -5,15 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CardViewPage extends StatefulWidget {
-  final CardModel card;
+  final CardModel? card;
 
-  const CardViewPage({Key key, this.card}) : super(key: key);
+  const CardViewPage({Key? key, this.card}) : super(key: key);
 
   @override
   _CardViewPageState createState() => _CardViewPageState();
 }
 
 class _CardViewPageState extends State<CardViewPage> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   void onRemove(card) {
     Provider.of<CardProvider>(context).removeCard(card);
@@ -26,7 +31,6 @@ class _CardViewPageState extends State<CardViewPage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(238, 241, 242, 1),
       appBar: AppBar(
-        brightness: Brightness.light,
         title: Text("Card View", style: TextStyle(color: Colors.black),),
         backgroundColor: Color.fromRGBO(238, 241, 242, 1),
         elevation: 0,
@@ -54,7 +58,7 @@ class _CardViewPageState extends State<CardViewPage> {
             offset: Offset.fromDirection(0, 15),
             child: Container(
               height: 210,
-              child: CardView(widget.card),
+              child: CardView(widget.card ?? CardModel(bankName: "null")),
             ),
           ),
         ),

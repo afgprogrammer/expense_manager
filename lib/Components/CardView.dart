@@ -2,7 +2,6 @@ import 'package:expense_manager/Model/CardModel.dart';
 import 'package:flutter/material.dart';
 
 class CardView extends StatefulWidget {
-
   final CardModel card;
 
   CardView(this.card) : super();
@@ -36,20 +35,14 @@ class _CardViewState extends State<CardView> {
                         Container(
                           width: 40.0,
                           height: 40.0,
-                          decoration: BoxDecoration(
-                            color: Colors.red.withOpacity(.8),
-                            shape: BoxShape.circle
-                          ),
+                          decoration: BoxDecoration(color: Colors.red.withOpacity(.8), shape: BoxShape.circle),
                         ),
                         Transform.translate(
                           offset: Offset(-15, 0),
                           child: Container(
                             width: 40.0,
                             height: 40.0,
-                            decoration: BoxDecoration(
-                              color: Colors.orange.withOpacity(.8),
-                              shape: BoxShape.circle
-                            ),
+                            decoration: BoxDecoration(color: Colors.orange.withOpacity(.8), shape: BoxShape.circle),
                           ),
                         ),
                       ],
@@ -57,8 +50,14 @@ class _CardViewState extends State<CardView> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
-                        Text(widget.card.available.toString(), style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
-                        Text(" " + widget.card.currency, style: TextStyle(color: Colors.white, fontSize: 15),)
+                        Text(
+                          widget.card.available.toString(),
+                          style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          " " + widget.card.currency.toString(),
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        )
                       ],
                     )
                   ],
@@ -67,14 +66,18 @@ class _CardViewState extends State<CardView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      child: Text(widget.card.name, style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),),
+                      child: Text(
+                        widget.card.name.toString(),
+                        style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     FittedBox(
                       fit: BoxFit.contain,
-                      child: Text(widget.card.number, style: TextStyle(color: Colors.white, fontSize: 20, letterSpacing: 10, fontWeight: FontWeight.bold)),
+                      child: Text(widget.card.number.toString(),
+                          style: TextStyle(color: Colors.white, fontSize: 20, letterSpacing: 10, fontWeight: FontWeight.bold)),
                     )
                   ],
                 )

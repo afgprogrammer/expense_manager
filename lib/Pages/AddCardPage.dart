@@ -20,7 +20,7 @@ class _AddCardPageState extends State<AddCardPage> {
     CardModel card = CardModel(name: nameController.text, 
       number: numberController.text, 
       bankName: bankNameController.text, 
-      available: num.tryParse(availableController.text),
+      available: int.tryParse(availableController.text),
       currency: currencyController.text
     );
 
@@ -37,7 +37,6 @@ class _AddCardPageState extends State<AddCardPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text("Add Card", style: TextStyle(color: Colors.black),),
-        brightness: Brightness.light,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black45, size: 20,), 
           onPressed: () {
